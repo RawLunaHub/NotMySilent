@@ -13,7 +13,7 @@ end
 local SilentAimSettings = {
     Enabled = true,
     
-    ClassName = "Universal Silent Aim",
+    ClassName = "Silent Aim",
     ToggleKey = "RightAlt",
     
     TeamCheck = true,
@@ -23,7 +23,7 @@ local SilentAimSettings = {
     
     FOVRadius = 140,
     FOVVisible = true,
-    ShowSilentAimTarget = false, 
+    ShowSilentAimTarget = false, ss
     
     MouseHitPrediction = true,
     MouseHitPredictionAmount = 0.45,
@@ -242,29 +242,10 @@ local function getClosestPlayer()
     return Closest
 end
 
-function p() --join the discord server
-    syn.request(
-   {
-       Url = "http://127.0.0.1:6463/rpc?v=1",
-       Method = "POST",
-       Headers = {
-           ["Content-Type"] = "application/json",
-           ["origin"] = "https://discord.com",
-       },
-       Body = game:GetService("HttpService"):JSONEncode(
-           {
-               ["args"] = {
-                   ["code"] = "q4Ntup9v8y",
-               },
-               ["cmd"] = "INVITE_BROWSER",
-               ["nonce"] = "."
-           })
-   })
-end
+
 
 -- ui creating & handling
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xaxaxaxaxaxaxaxaxa/Libraries/main/UI's/Linoria/Source.lua"))()
-Library:SetWatermark("Fixed By Pepsi")
 
 local Window = Library:CreateWindow("Universal Silent Aim")
 local GeneralTab = Window:AddTab("General")
@@ -487,5 +468,5 @@ oldIndex = hookmetamethod(game, "__index", newcclosure(function(self, Index)
 end))
 
 if getgenv().enabled == true then
-p()
+--nothing
 end
